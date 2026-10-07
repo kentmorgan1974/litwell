@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Litwell — search scientific literature, preprints and patents</title>
+<meta name="description" content="Litwell searches PubMed, Crossref, OpenAlex, Europe PMC, arXiv, preprint servers and patent offices, and saves the results to one file.">
+<link rel="icon" href="assets/favicon.png">
+<style>
+  :root {
+    --bg: #f6f7fb; --card: #ffffff; --ink: #14213d; --muted: #5a6478;
+    --brand: #002060; --brand-ink: #ffffff; --line: #dfe3ee; --accent: #1f5bd6;
+    --note: #fff8e6; --note-line: #f0d98a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1220; --card: #151c30; --ink: #e8ecf6; --muted: #9aa5bd;
+      --brand: #3b6ff0; --brand-ink: #ffffff; --line: #26304a; --accent: #7aa2ff;
+      --note: #2a2410; --note-line: #5c4d1a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 56px; }
+  header { text-align: center; margin-bottom: 28px; }
+  header img { width: 96px; height: 96px; border-radius: 22px; }
+  h1 { margin: 12px 0 4px; font-size: 2.1rem; letter-spacing: -.01em; }
+  .tag { margin: 0 auto; max-width: 560px; color: var(--muted); font-size: 1.1rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+          padding: 24px; margin: 20px 0; }
+  .downloads { text-align: center; }
+  .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 16px 0 6px; }
+  a.btn { display: inline-block; padding: 14px 26px; border-radius: 12px; font-weight: 600;
+          text-decoration: none; border: 2px solid var(--brand); color: var(--brand); background: transparent; }
+  a.btn.primary { background: var(--brand); color: var(--brand-ink); }
+  a.btn:hover { filter: brightness(1.08); }
+  a.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .small { color: var(--muted); font-size: .9rem; }
+  h2 { font-size: 1.25rem; margin: 0 0 8px; }
+  ol, ul { padding-left: 1.3rem; margin: 8px 0; }
+  li { margin: 6px 0; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 640px) { .two { grid-template-columns: 1fr; } h1 { font-size: 1.7rem; } }
+  .note { background: var(--note); border: 1px solid var(--note-line); border-radius: 12px;
+          padding: 12px 16px; font-size: .95rem; }
+  code { background: rgba(127,127,127,.15); padding: 1px 6px; border-radius: 5px; font-size: .92em; }
+  footer { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 32px; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="assets/litwell.png" alt="Litwell logo: a magnifying glass over the letter L">
+    <h1>Litwell</h1>
+    <p class="tag">Search scientific papers, preprints and patents in one place, and keep every result in a single file you can open in Excel.</p>
+  </header>
+
+  <section class="card downloads" aria-labelledby="dl">
+    <h2 id="dl">Download</h2>
+    <div class="btns">
+      <a class="btn primary" id="btn-win" href="https://github.com/kentmorgan1974/litwell/releases/latest/download/Litwell-Windows.exe">Download for Windows</a>
+      <a class="btn" id="btn-mac" href="https://github.com/kentmorgan1974/litwell/releases/latest/download/Litwell-macOS.zip">Download for Mac</a>
+    </div>
+    <p class="small" id="ver">Latest version</p>
+    <p class="small">Windows 10 or 11 (64-bit) &middot; Mac with Apple silicon or Intel &middot; free &middot; nothing else to install</p>
+  </section>
+
+  <section class="card">
+    <h2>What it does</h2>
+    <ul>
+      <li>Searches <strong>PubMed, Crossref, OpenAlex, Europe PMC and arXiv</strong> for papers.</li>
+      <li>Searches <strong>preprint servers</strong> such as bioRxiv, SSRN, OSF and ChemRxiv.</li>
+      <li>Searches <strong>US and worldwide patents</strong> (needs a free key, explained in the app's help).</li>
+      <li>Saves titles, authors, journals, dates, DOIs and working links to <strong>one Excel file</strong> (or CSV, text, Markdown, RIS, BibTeX), skipping duplicates.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>First time you open it</h2>
+    <p class="small" style="margin-top:0">Litwell isn't signed with a paid developer certificate, so your computer asks you to confirm once. It's a one-time step.</p>
+    <div class="two">
+      <div>
+        <strong>Windows</strong>
+        <ol>
+          <li>Click <em>Download for Windows</em>, then open the file.</li>
+          <li>If you see <em>&ldquo;Windows protected your PC&rdquo;</em>, click <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+        </ol>
+      </div>
+      <div>
+        <strong>Mac</strong>
+        <ol>
+          <li>Click <em>Download for Mac</em> and double-click the zip to unpack it.</li>
+          <li>Drag <strong>Litwell</strong> to Applications and open it.</li>
+          <li>If macOS says it can't check the app, open <strong>System Settings &rarr; Privacy &amp; Security</strong>, scroll down and click <strong>Open Anyway</strong>. (On older macOS: right-click the app, choose <strong>Open</strong>.)</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <p class="note"><strong>Your privacy:</strong> searches go straight from your computer to the public databases. Results and settings stay on your computer. There's no account and no tracking.</p>
+
+  <footer>
+    Litwell is provided as-is, without warranty. &middot;
+    <a href="https://github.com/kentmorgan1974/litwell/releases">All versions</a>
+  </footer>
+</main>
+<script>
+  // Highlight the right download for the visitor's computer.
+  (function () {
+    var ua = navigator.userAgent || "";
+    var win = document.getElementById("btn-win"), mac = document.getElementById("btn-mac");
+    if (/Mac|iPhone|iPad/.test(ua) && !/Windows/.test(ua)) {
+      mac.classList.add("primary"); win.classList.remove("primary");
+    }
+    // Show the current version number (falls back silently if GitHub is unreachable).
+    fetch("https://api.github.com/repos/kentmorgan1974/litwell/releases/latest")
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (d && d.tag_name) {
+          var day = (d.published_at || "").slice(0, 10);
+          document.getElementById("ver").textContent =
+            "Version " + d.tag_name.replace(/^v/, "") + (day ? " · released " + day : "");
+        }
+      })
+      .catch(function () {});
+  })();
+</script>
+</body>
+</html>
